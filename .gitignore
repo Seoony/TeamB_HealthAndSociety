@@ -89,3 +89,6 @@ desktop.ini
 *.sqlite3
 *.db
 secrets.*
+
+data
+models
