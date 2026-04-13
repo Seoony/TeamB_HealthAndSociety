@@ -18,11 +18,40 @@ Este repositorio contiene el desarrollo del **Equipo B** para el proyecto de inv
 Sigue estos pasos para preparar el entorno de desarrollo. Este proyecto requiere **Python 3**.
 
 ### 1. Estructura de Configuración
+
+```text
+PROYECTO-UNSA-OKLAHOMA/
+├── data/               # Datos del proyecto (No sincronizados en Git)
+│   ├── raw/            # Datos originales extraídos de PostgreSQL
+│   ├── processed/      # Datos limpios y transformados para el modelo
+│   └── external/       # Diccionarios de datos o fuentes externas
+├── notebooks/          # Jupyter Notebooks para experimentación y EDA
+├── src/                # Código fuente modular
+│   ├── config.py       # Configuración centralizada y variables de entorno
+│   ├── data_loader.py  # Gestión de conexión a DB y caché local
+│   ├── preprocessing.py# Limpieza de datos y feature engineering
+│   └── models/         # Scripts de entrenamiento y predicción
+├── models/             # Archivos de modelos entrenados (.pkl, .h5) (No sincronizados en Git)
+├── reports/            # Informes y resultados
+│   └── figures/        # Gráficas generadas para la investigación
+├── .env                # Variables sensibles (Local)
+├── .gitignore          # Archivos excluidos del repositorio
+├── requirements.txt    # Dependencias de Python
+└── README.md           # Documentación general
+```
+
 * `src/`: Directorio que contiene el código fuente.
 * `.env` / `.env.example`: Archivos para la gestión de variables de entorno (datos sensibles).
 * `variables.ps1`: Script para cargar el `.env` en sesiones de PowerShell.
 * `requirements.txt`: Dependencias del proyecto.
 * `.gitignore`: Configuración para evitar subir archivos innecesarios o sensibles.
+
+#### Preparación de Directorios
+Dado que las carpetas de datos y modelos están ignoradas en el repositorio por seguridad y peso, debes crearlas localmente ejecutando el siguiente comando:
+
+```bash
+mkdir data/raw, data/processed, data/external, notebooks, models -Force
+```
 
 ### 2. Creación del Entorno Virtual
 
@@ -34,10 +63,10 @@ Se recomienda el uso de un entorno virtual para aislar las dependencias.
 pip install virtualenv
 
 # Crear el entorno
-virtualenv venv
+virtualenv .
 
 # Activar (Windows)
-.\venv\Scripts\activate
+.\Scripts\activate
 ```
 
 #### Opción B: venv (Nativo de Python)
