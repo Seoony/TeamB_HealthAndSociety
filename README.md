@@ -90,11 +90,27 @@ Para configurar el entorno correctamente:
 
 2. Completa los valores requeridos dentro de .env.
 
-3. Si usas PowerShell, carga las variables ejecutando:
+### 5. Descarga de Datos
 
-```powerShell
-./variables.ps1
+Antes de comenzar con el modelado predictivo, es necesario sincronizar la base de datos local con el servidor centralizado de OSCER.
+
+#### 1. Variables de Entorno
+Asegúrate de tener un archivo `.env` en la raíz del proyecto con las credenciales de la base de datos. Puedes guiarte del archivo `.env.example`.
+
+#### 2. Instalación de Dependencias
+Instala las librerías necesarias, incluyendo el driver de PostgreSQL y herramientas de visualización de progreso:
+```bash
+pip install -r requirements.txt
 ```
+
+#### 3. Ejecución del script data_loader
+Para descargar las tablas prioritarias (Neumonía y Población) y convertirlas al formato de alto rendimiento Parquet, ejecuta el siguiente comando desde la raíz:
+
+```bash
+#Ejecución estandar
+py -m src.data_loader
+```
+
 ## 🚀 Ejecución
 Para iniciar el proyecto, navega a la carpeta de código:
 
@@ -103,4 +119,18 @@ cd src
 python main.py
 ```
 ### 🔬 Sobre la Investigación
-Este trabajo es parte de una colaboración académica internacional para el análisis y visualización de datos de salud en la región de Arequipa.
+Este trabajo forma parte de una colaboración académica internacional entre la Universidad Nacional de San Agustín (UNSA) y la University of Oklahoma (OU) para el análisis y visualización de datos de salud pública.
+
+#### Objetivo del Equipo B
+El Equipo B se enfoca en el Análisis y Modelado Predictivo de la Incidencia de Hospitalizaciones y Mortalidad por Infecciones Respiratorias Agudas (IRAs) y Neumonía en el Perú, con énfasis en la región de Arequipa.
+
+#### Alcance Técnico y Científico
+* **Análisis Multiescala:** El estudio abarca proyecciones a nivel nacional, regional y provincial.
+
+* **Estratificación Demográfica:** Priorización de grupos vulnerables, específicamente menores de 5 años y adultos mayores de 60 años.
+
+* **Modelado Avanzado:** Implementación de modelos estadísticos (ARIMA/SARIMA), Machine Learning (XGBoost/Prophet) y Deep Learning (LSTM/GRU) para predecir la carga hospitalaria.
+
+#### Impacto Esperado
+Los resultados de esta investigación se integrarán en la plataforma PanViz para apoyar la toma de decisiones informadas en salud pública y se publicarán en manuscritos científicos de alto impacto.
+
