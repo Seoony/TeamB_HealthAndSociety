@@ -3,18 +3,19 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Rutas del Proyecto
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
-MODELS_DIR = BASE_DIR / "models"
-REPORTS_DIR = BASE_DIR / "reports"
+PROJ_ROOT = Path(__file__).resolve().parent.parent
+#DATA_DIR = BASE_DIR / "data"
+#MODELS_DIR = BASE_DIR / "models"
+#REPORTS_DIR = BASE_DIR / "reports"
 
 # Cargar variables de entorno del archivo .env
-load_dotenv(dotenv_path=BASE_DIR / ".env")
+load_dotenv(dotenv_path=PROJ_ROOT / ".env")
 
 class Config:
   """Configuración centralizada para el Equipo B (Hospitalizaciones y Decesos)"""
 
-  
+  BASE_DIR = PROJ_ROOT
+
   # Infraestructura de Datos (OSCER/PostgreSQL) 
   DB_USER = os.getenv("DB_USER", "postgres")
   DB_PASS = os.getenv("DB_PASS", "")
