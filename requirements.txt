@@ -16,3 +16,7 @@ SQLAlchemy==2.0.49
 tqdm==4.67.3
 typing_extensions==4.15.0
 tzdata==2026.2
+# Anomaly / outlier detection
+polars==1.40.1
+scikit-learn==1.8.0
+matplotlib==3.10.9

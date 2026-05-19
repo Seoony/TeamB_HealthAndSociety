@@ -1,0 +1,53 @@
+==============================================================================
+REPORTE EJECUTIVO - DETECCION DE OUTLIERS Y ANOMALIAS
+==============================================================================
+
+## Tabla: pneumonia_dept    filas=28,726
+   deaths_total__is_iqr                                       2,739  ( 9.53%)
+   incidence_cases_total__is_iqr                              1,260  ( 4.39%)
+   incidence_hosp_total__is_iqr                               1,217  ( 4.24%)
+   hosp_total__is_iqr                                         1,201  ( 4.18%)
+   cases_total__is_iqr                                        1,192  ( 4.15%)
+   incidence_cases_total__is_seas                             1,022  ( 3.56%)
+   cases_total__is_seas                                         931  ( 3.24%)
+   incidence_cases_total__is_mad                                905  ( 3.15%)
+   cases_total__is_mad                                          850  ( 2.96%)
+   hosp_total__is_mad                                           837  ( 2.91%)
+   incidence_hosp_total__is_mad                                 774  ( 2.69%)
+   hosp_total__is_seas                                          757  ( 2.64%)
+   incidence_hosp_total__is_seas                                720  ( 2.51%)
+   deaths_total__is_roll                                        311  ( 1.08%)
+   is_iforest                                                   288  ( 1.00%)
+   deaths_total__is_seas                                        249  ( 0.87%)
+   deaths_total__is_mad                                         243  ( 0.85%)
+   hosp_total__is_roll                                           32  ( 0.11%)
+   incidence_hosp_total__is_roll                                 32  ( 0.11%)
+   cases_total__is_roll                                          14  ( 0.05%)
+   incidence_cases_total__is_roll                                14  ( 0.05%)
+   Top-5 grupos por IForest:
+      - AMAZONAS                               12 /  1197
+      - ANCASH                                 12 /  1197
+      - APURIMAC                               12 /  1197
+      - AREQUIPA                               12 /  1197
+      - AYACUCHO                               12 /  1197
+
+## Tabla: iras_dept    filas=31,225
+   deaths_total__is_iqr                                       2,874  ( 9.20%)
+   cases_total__is_iqr                                        1,295  ( 4.15%)
+   hosp_total__is_iqr                                         1,273  ( 4.08%)
+   hosp_total__is_mad                                           950  ( 3.04%)
+   cases_total__is_seas                                         940  ( 3.01%)
+   hosp_total__is_seas                                          852  ( 2.73%)
+   cases_total__is_mad                                          840  ( 2.69%)
+   deaths_total__is_seas                                        395  ( 1.27%)
+   deaths_total__is_roll                                        339  ( 1.09%)
+   is_iforest                                                   325  ( 1.04%)
+   deaths_total__is_mad                                         291  ( 0.93%)
+   hosp_total__is_roll                                           32  ( 0.10%)
+   cases_total__is_roll                                          15  ( 0.05%)
+   Top-5 grupos por IForest:
+      - AMAZONAS                               13 /  1249
+      - ANCASH                                 13 /  1249
+      - APURIMAC                               13 /  1249
+      - AREQUIPA                               13 /  1249
+      - AYACUCHO                               13 /  1249

@@ -65,6 +65,14 @@ venv.bak/
 .python-version
 variables.ps1
 
+# Virtualenv creado en la raiz del proyecto (`virtualenv .`)
+Scripts/
+Lib/
+Include/
+share/
+pyvenv.cfg
+CACHEDIR.TAG
+
 # IDEs and editors
 .vscode/
 .idea/
