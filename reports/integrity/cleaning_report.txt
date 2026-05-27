@@ -1,0 +1,55 @@
+====================================================================================
+REPORTE DE LIMPIEZA (CLEANING) - INTEGRIDAD
+====================================================================================
+
+Cambios aplicados a cada tabla raw:
+  R1. Deduplicacion por clave natural (max() en metricas).
+  R3. flag_death_no_hosp marcado (no eliminado).
+  R4. clamp cases_total = hosp_total cuando hosp_total > cases.
+
+## iras_weekly_dept
+   filas:                   93,924  ->      31,225 (removidas: 62,699)
+   flag_death_no_hosp:         146
+   flag_hosp_corrected:         32
+   output:              data\processed\iras_weekly_dept_cleaned.parquet
+
+## iras_weekly_prov
+   filas:                  731,346  ->     243,193 (removidas: 488,153)
+   flag_death_no_hosp:       2,621
+   flag_hosp_corrected:        387
+   output:              data\processed\iras_weekly_prov_cleaned.parquet
+
+## pneumonia_dept
+   filas:                  172,824  ->      28,726 (removidas: 144,098)
+   flag_death_no_hosp:         143
+   flag_hosp_corrected:         19
+   output:              data\processed\pneumonia_dept_cleaned.parquet
+
+## pneumonia_prov
+   filas:                  701,862  ->     233,389 (removidas: 468,473)
+   flag_death_no_hosp:       2,526
+   flag_hosp_corrected:        383
+   output:              data\processed\pneumonia_prov_cleaned.parquet
+
+====================================================================================
+R2. SILENCIOS POR PROVINCIA (Top-15 con mayor sub-registro)
+====================================================================================
+   department             province                     pct_silence slope/anio    n_obs
+   LAMBAYEQUE             FERRENAFE                         64.56%     -1.843    3,750
+   LAMBAYEQUE             LAMBAYEQUE                        61.18%     -3.286    3,756
+   PIURA                  SECHURA                           60.13%     -1.757    3,747
+   PIURA                  TALARA                            59.74%     -0.071    3,756
+   AMAZONAS               CONDORCANQUI                      59.42%     +0.313    3,756
+   LIMA                   BARRANCA                          57.88%     -0.780    3,732
+   PIURA                  AYABACA                           57.03%     +0.130    3,756
+   LAMBAYEQUE             CHICLAYO                          56.87%     -0.741    3,756
+   CAJAMARCA              CHOTA                             55.16%     -2.832    3,753
+   AREQUIPA               ISLAY                             53.69%     +0.909    3,744
+   HUANUCO                PUERTO INCA                       47.32%     -1.220    3,747
+   AMAZONAS               BAGUA                             47.20%     +1.076    3,756
+   LORETO                 DATEM DEL MARANON                 46.17%     -0.207    3,723
+   LORETO                 ALTO AMAZONAS                     44.68%     -0.283    3,747
+   AREQUIPA               CARAVELI                          44.28%     -0.169    3,753
+
+Lectura: slope_pct_per_year > 0 => el sub-registro EMPEORA;
+         slope_pct_per_year < 0 => MEJORA con los anios.

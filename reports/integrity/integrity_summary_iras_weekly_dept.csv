@@ -1,0 +1,15 @@
+column,nulls,pct
+ubigeo,0,0.0
+department,0,0.0
+ano,0,0.0
+semana,0,0.0
+week_start,0,0.0
+pneumonia_under5,0,0.0
+pneumonia_60plus,0,0.0
+cases_total,0,0.0
+hosp_under5,0,0.0
+hosp_60plus,0,0.0
+hosp_total,0,0.0
+deaths_under5,0,0.0
+deaths_60plus,0,0.0
+deaths_total,0,0.0
