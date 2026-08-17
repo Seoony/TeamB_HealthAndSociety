@@ -9,8 +9,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor 
+import time
 
-
+inicio = time.perf_counter()
 
 # SETTINGS
 
@@ -83,6 +84,7 @@ def safe_rmse(y_true, y_pred):
 
 def load_data():
     ira = pd.read_parquet(IRA_PATH)
+    print(f"Número total de filas: {ira.shape[0]}")
     pop = pd.read_parquet(POP_PATH)
 
     ira.columns = ira.columns.str.lower().str.strip()
@@ -947,6 +949,7 @@ def main():
         print(f"\nRunning region: {region}")
 
         df_region = prepare_region_series(ira, pop, region)
+        print(f"{region}: {len(df_region)} filas")
 
         trainer = MLRegionTrainer(df_region, region)
         trainer.load_dataset()
@@ -1007,6 +1010,9 @@ def main():
  
     print(f"\nDone. Outputs saved to: {OUTPUT_DIR}")
 
+    fin = time.perf_counter()
+    tiempo = fin - inicio
+    print(f"Tiempo de ejecución: {tiempo:.4f} segundos")
 
 if __name__ == "__main__":
     main()
