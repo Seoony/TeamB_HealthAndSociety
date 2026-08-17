@@ -21,7 +21,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 IRA_PATH = ROOT_DIR / "data" / "raw" / "iras_data_raw_temp.parquet"
 POP_PATH = ROOT_DIR / "data" / "raw" / "population_dept_long.parquet"
 
-OUTPUT_DIR = ROOT_DIR / "outputs" / "adults_hosp_ml_optimized"
+OUTPUT_DIR = ROOT_DIR / "outputs" / "adults_death_ml_optimized"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 REGIONS = ["AREQUIPA", "TACNA", "MOQUEGUA", "TUMBES", "LIMA"]
