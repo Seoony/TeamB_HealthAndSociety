@@ -1,0 +1,11 @@
+region,model,mae,rmse,r2
+AREQUIPA,random_forest,0.437,0.648,0.717
+AREQUIPA,xgboost,0.398,0.593,0.764
+TACNA,random_forest,0.419,0.596,0.652
+TACNA,xgboost,0.403,0.579,0.671
+MOQUEGUA,random_forest,1.445,2.343,0.596
+MOQUEGUA,xgboost,1.407,2.326,0.602
+TUMBES,random_forest,0.356,0.561,0.543
+TUMBES,xgboost,0.361,0.554,0.554
+LIMA,random_forest,0.131,0.204,0.825
+LIMA,xgboost,0.126,0.201,0.831

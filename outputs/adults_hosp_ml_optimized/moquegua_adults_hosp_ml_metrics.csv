@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+MOQUEGUA,random_forest,1.445,2.343,0.596
+MOQUEGUA,xgboost,1.407,2.326,0.602

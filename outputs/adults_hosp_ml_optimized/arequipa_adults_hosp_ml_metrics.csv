@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+AREQUIPA,random_forest,0.437,0.648,0.717
+AREQUIPA,xgboost,0.398,0.593,0.764
