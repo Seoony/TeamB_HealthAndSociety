@@ -972,27 +972,30 @@ def main():
 
         prefix = region.lower()
 
+        region_dir = OUTPUT_DIR / prefix
+        region_dir.mkdir(parents=True, exist_ok=True)
+ 
         results_df.to_csv(
-            OUTPUT_DIR / f"{prefix}_adults_hosp_ml_predictions.csv", index=False)
+            region_dir / f"{prefix}_adults_hosp_ml_predictions.csv", index=False)
         metrics_df.to_csv(
-            OUTPUT_DIR / f"{prefix}_adults_hosp_ml_metrics.csv", index=False)
+            region_dir / f"{prefix}_adults_hosp_ml_metrics.csv", index=False)
         future_df.to_csv(
-            OUTPUT_DIR / f"{prefix}_adults_hosp_ml_future_predictions.csv", index=False)
+            region_dir / f"{prefix}_adults_hosp_ml_future_predictions.csv", index=False)
         comparison_df.to_csv(
-            OUTPUT_DIR / f"{prefix}_comparison_predictions.csv", index=False)
+            region_dir / f"{prefix}_comparison_predictions.csv", index=False)
         trainer.plot_results(
             future_df=future_df,
-            output_png=OUTPUT_DIR / f"{prefix}_adults_hosp_ml_plot.png"
+            output_png=region_dir / f"{prefix}_adults_hosp_ml_plot.png"
         )
         trainer.plot_heatmap(
             future_df=future_df,
-            output_png=OUTPUT_DIR / f"{prefix}_adults_hosp_heatmap.png"
+            output_png=region_dir / f"{prefix}_adults_hosp_heatmap.png"
         )
         trainer.plot_anomalies(
             future_df=future_df,
-            output_png=OUTPUT_DIR / f"{prefix}_adults_hosp_anomalies.png"
+            output_png=region_dir / f"{prefix}_adults_hosp_anomalies.png"
         )
-
+ 
     pd.concat(all_results,     ignore_index=True).to_csv(
         OUTPUT_DIR / "all_regions_adults_hosp_ml_predictions.csv",        index=False)
     pd.concat(all_metrics,     ignore_index=True).to_csv(
@@ -1001,7 +1004,7 @@ def main():
         OUTPUT_DIR / "all_regions_adults_hosp_ml_future_predictions.csv", index=False)
     pd.concat(all_comparisons, ignore_index=True).to_csv(
         OUTPUT_DIR / "all_regions_comparison_predictions.csv",            index=False)
-
+ 
     print(f"\nDone. Outputs saved to: {OUTPUT_DIR}")
 
 
