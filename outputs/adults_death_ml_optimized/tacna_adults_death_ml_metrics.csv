@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+TACNA,random_forest,0.139,0.247,0.574
+TACNA,xgboost,0.139,0.239,0.602
