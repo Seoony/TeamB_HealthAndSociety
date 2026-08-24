@@ -1003,7 +1003,7 @@ def main():
     pd.concat(all_future,      ignore_index=True).to_csv(
         OUTPUT_DIR / "all_regions_adults_death_ml_future_predictions.csv", index=False)
     pd.concat(all_comparisons, ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_comparison_predictions.csv",            index=False)
+        OUTPUT_DIR / "all_regions_comparison_death_predictions.csv",            index=False)
  
     print(f"\nDone. Outputs saved to: {OUTPUT_DIR}")
 

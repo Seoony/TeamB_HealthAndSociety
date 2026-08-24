@@ -330,18 +330,29 @@ class MLRegionTrainer:
         }])
 
     def forecast_future(self, model_name):
-        history = self.region_df.copy().sort_values("date").reset_index(drop=True)
+        history = (
+            self.region_df
+            .copy()
+            .sort_values("date")
+            .reset_index(drop=True)
+        )
+
         future_rows = []
 
         for _ in range(FUTURE_BLOCKS):
-            df_feat      = self.create_features(history)
+
+            df_feat = self.create_features(history)
             feature_cols = self.get_feature_columns(df_feat)
 
             train_df = df_feat.iloc[-TRAIN_WINDOW_WEEKS:].copy()
-            X_train  = train_df[feature_cols]
-            y_train  = train_df["target_model"]
 
-            upper_clip = np.percentile(train_df["incidence_smooth"].values, 99)
+            X_train = train_df[feature_cols]
+            y_train = train_df["target_model"]
+
+            upper_clip = np.percentile(
+                train_df["incidence_smooth"].values,
+                99
+            )
 
             model = self.create_model(model_name)
             model.fit(X_train, y_train)
@@ -349,41 +360,63 @@ class MLRegionTrainer:
             last_date = history["date"].iloc[-1]
             block_rows = []
 
-            y_model_accum = transform_y(history["incidence_smooth"].values).tolist()
+            y_model_accum = transform_y(
+                history["incidence_smooth"].values
+            ).tolist()
 
             for h in range(1, FORECAST_HORIZON + 1):
+
                 next_date = last_date + pd.Timedelta(weeks=h)
 
                 X_next = self.make_next_feature_row(
                     y_model_history=np.array(y_model_accum),
                     next_date=next_date
                 )
+
                 X_next = X_next[feature_cols]
 
-                pred_model    = model.predict(X_next)[0]
-                pred_original = float(inverse_transform_y([pred_model])[0])
-                pred_original = np.clip(pred_original, 0, upper_clip)
+                pred_model = model.predict(X_next)[0]
 
+                pred_original = float(
+                    inverse_transform_y([pred_model])[0]
+                )
+
+                pred_original = np.clip(
+                    pred_original,
+                    0,
+                    upper_clip
+                )
+
+                # FIX 1: usar columnas fijas "predicted"/"model" en vez de
+                # una columna dinámica con el nombre del modelo. Esto es lo
+                # que esperan plot_results, plot_heatmap, plot_anomalies y
+                # future_predictions_dataframe (pivot sobre "model"/"predicted").
                 future_rows.append({
-                    "date"     : next_date,
+                    "date": next_date,
                     "predicted": pred_original,
-                    "model"    : model_name,
-                    "region"   : self.region_name
+                    "model": model_name,
+                    "region": self.region_name
                 })
 
                 new_row = {
-                    "date"            : next_date,
-                    "year"            : next_date.year,
-                    "departamento"    : self.region_name,
-                    "incidence_raw"   : pred_original,
+                    "date": next_date,
+                    "year": next_date.year,
+                    "departamento": self.region_name,
+                    "incidence_raw": pred_original,
                     "incidence_smooth": pred_original
                 }
+
                 block_rows.append(new_row)
 
-                y_model_accum.append(transform_y([pred_original])[0])
+                y_model_accum.append(
+                    transform_y([pred_original])[0]
+                )
 
             history = pd.concat(
-                [history, pd.DataFrame(block_rows)],
+                [
+                    history,
+                    pd.DataFrame(block_rows)
+                ],
                 ignore_index=True
             )
 
@@ -448,6 +481,27 @@ class MLRegionTrainer:
             })
 
         return pd.DataFrame(rows)
+
+    def future_predictions_dataframe(self, future_df):
+        # FIX 2: método faltante, requerido por main(). Pivotea future_df
+        # (date, predicted, model, region) para tener una columna por modelo,
+        # igual que hace comparison_dataframe() con los resultados de backtest.
+        df = future_df.copy()
+        df["date"] = pd.to_datetime(df["date"])
+
+        pivot = (
+            df.pivot_table(
+                index=["date", "region"],
+                columns="model",
+                values="predicted",
+                aggfunc="first"
+            )
+            .reset_index()
+        )
+        pivot.columns.name = None
+        pivot["date"] = pivot["date"].dt.strftime("%Y-%m-%d")
+
+        return pivot.sort_values("date").reset_index(drop=True)
 
     def plot_results(self, future_df, output_png):
         df = self.results_dataframe().copy()
@@ -946,69 +1000,118 @@ def main():
     model_names = ["random_forest", "xgboost"]
 
     for region in REGIONS:
-        print(f"\nRunning region: {region}")
 
-        df_region = prepare_region_series(ira, pop, region)
+        print(f"\nRunning region: {region}")
+        df_region = prepare_region_series(
+            ira,
+            pop,
+            region
+        )
+
         print(f"{region}: {len(df_region)} filas")
 
-        trainer = MLRegionTrainer(df_region, region)
+        trainer = MLRegionTrainer(
+            df_region,
+            region
+        )
+
         trainer.load_dataset()
 
         for model_name in model_names:
+
             print(f"  Training: {model_name}")
+
             trainer.train(model_name)
 
         future_dfs = []
-        for model_name in model_names:
-            print(f"  Forecasting: {model_name}")
-            future_dfs.append(trainer.forecast_future(model_name))
 
-        future_df     = pd.concat(future_dfs, ignore_index=True)
-        results_df    = trainer.results_dataframe()
-        metrics_df    = trainer.metrics_dataframe()
+        for model_name in model_names:
+
+            print(f"  Forecasting: {model_name}")
+
+            future_dfs.append(
+                trainer.forecast_future(model_name)
+            )
+
+        future_df = pd.concat(future_dfs,ignore_index=True)
+
+        results_df = trainer.results_dataframe()
+
+        metrics_df = trainer.metrics_dataframe()
+
         comparison_df = trainer.comparison_dataframe()
+
+        future_csv_df = trainer.future_predictions_dataframe(future_df)
 
         all_results.append(results_df)
         all_metrics.append(metrics_df)
-        all_future.append(future_df)
+        all_future.append(future_csv_df)
         all_comparisons.append(comparison_df)
 
         prefix = region.lower()
 
         region_dir = OUTPUT_DIR / prefix
-        region_dir.mkdir(parents=True, exist_ok=True)
- 
+
+        region_dir.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
         results_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_predictions.csv", index=False)
+            region_dir / f"{prefix}_adults_hosp_ml_predictions.csv",
+            index=False
+        )
+
         metrics_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_metrics.csv", index=False)
-        future_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_future_predictions.csv", index=False)
+            region_dir / f"{prefix}_adults_hosp_ml_metrics.csv",
+            index=False
+        )
+
+        future_csv_df.to_csv(
+            region_dir / f"{prefix}_adults_hosp_ml_future_predictions.csv",
+            index=False
+        )
+
         comparison_df.to_csv(
-            region_dir / f"{prefix}_comparison_predictions.csv", index=False)
+            region_dir / f"{prefix}_comparison_predictions.csv",
+            index=False
+        )
+
         trainer.plot_results(
             future_df=future_df,
             output_png=region_dir / f"{prefix}_adults_hosp_ml_plot.png"
         )
+
         trainer.plot_heatmap(
             future_df=future_df,
             output_png=region_dir / f"{prefix}_adults_hosp_heatmap.png"
         )
+
         trainer.plot_anomalies(
             future_df=future_df,
             output_png=region_dir / f"{prefix}_adults_hosp_anomalies.png"
         )
- 
-    pd.concat(all_results,     ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_predictions.csv",        index=False)
-    pd.concat(all_metrics,     ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_metrics.csv",            index=False)
-    pd.concat(all_future,      ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_future_predictions.csv", index=False)
+
+    pd.concat(all_results, ignore_index=True).to_csv(
+        OUTPUT_DIR / "all_regions_adults_hosp_ml_predictions.csv",
+        index=False
+    )
+    pd.concat(all_metrics, ignore_index=True).to_csv(
+        OUTPUT_DIR / "all_regions_adults_hosp_ml_metrics.csv",
+        index=False
+    )
+    pd.concat(all_future, ignore_index=True).to_csv(
+        OUTPUT_DIR / "all_regions_adults_hosp_ml_future_predictions.csv",
+        index=False
+    )
     pd.concat(all_comparisons, ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_comparison_predictions.csv",            index=False)
- 
-    print(f"\nDone. Outputs saved to: {OUTPUT_DIR}")
+        OUTPUT_DIR / "all_regions_comparison_hosp_predictions.csv",
+        index=False
+    )
+
+    print(
+        f"\nDone. Outputs saved to: {OUTPUT_DIR}"
+    )
 
     fin = time.perf_counter()
     tiempo = fin - inicio
