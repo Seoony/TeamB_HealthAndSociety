@@ -1,9 +1,7 @@
-"""Modulo de validacion y limpieza de integridad de los datos.
+"""Integridad de datos: limpieza (núcleo) y validación/reportes (aparte).
 
-Submodulos:
-    validation : Detecta nulos, negativos, inconsistencias logicas,
-                 duplicados y silencios sospechosos en las tablas raw.
-    cleaning   : Aplica las correcciones derivadas del reporte de
-                 validacion (deduplicacion, flags, clamp de cases) y
-                 deja las tablas en data/processed/.
+Importar desde los submódulos para no acoplar `python -m` al paquete:
+
+    from src.integrity.cleaning import load_cleaned, run_clean
+    from src.integrity.schema import CLEANING_PLAN
 """
