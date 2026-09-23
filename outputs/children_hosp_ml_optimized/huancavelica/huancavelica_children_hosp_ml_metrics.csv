@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+HUANCAVELICA,random_forest,0.559,0.739,0.721
+HUANCAVELICA,xgboost,0.52,0.691,0.756

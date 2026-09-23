@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+JUNIN,random_forest,0.05,0.069,0.478
+JUNIN,xgboost,0.049,0.067,0.506

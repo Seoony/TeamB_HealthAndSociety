@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+UCAYALI,random_forest,0.645,0.934,0.776
+UCAYALI,xgboost,0.602,0.871,0.805

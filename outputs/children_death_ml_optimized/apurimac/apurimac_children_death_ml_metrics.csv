@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+APURIMAC,random_forest,0.049,0.08,0.449
+APURIMAC,xgboost,0.053,0.087,0.339

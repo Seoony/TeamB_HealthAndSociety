@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+LAMBAYEQUE,random_forest,0.009,0.018,0.469
+LAMBAYEQUE,xgboost,0.009,0.02,0.351

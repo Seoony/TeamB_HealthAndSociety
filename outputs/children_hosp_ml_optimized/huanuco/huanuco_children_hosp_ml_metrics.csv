@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+HUANUCO,random_forest,0.661,0.909,0.878
+HUANUCO,xgboost,0.618,0.842,0.895

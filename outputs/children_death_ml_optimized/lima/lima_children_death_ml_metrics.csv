@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+LIMA,random_forest,0.008,0.011,0.401
+LIMA,xgboost,0.008,0.011,0.404

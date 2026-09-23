@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+LA LIBERTAD,random_forest,0.195,0.275,0.807
+LA LIBERTAD,xgboost,0.184,0.255,0.834

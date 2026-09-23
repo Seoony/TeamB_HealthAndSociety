@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+MADRE DE DIOS,random_forest,0.04,0.123,0.448
+MADRE DE DIOS,xgboost,0.047,0.141,0.267

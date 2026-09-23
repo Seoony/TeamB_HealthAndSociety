@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+LORETO,random_forest,0.09,0.12,0.556
+LORETO,xgboost,0.087,0.119,0.565
