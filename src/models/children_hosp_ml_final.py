@@ -22,7 +22,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 IRA_PATH = ROOT_DIR / "data" / "raw" / "iras_data_raw_temp.parquet"
 POP_PATH = ROOT_DIR / "data" / "raw" / "population_dept_long.parquet"
 
-OUTPUT_DIR = ROOT_DIR / "outputs" / "adults_hosp_ml_optimized"
+OUTPUT_DIR = ROOT_DIR / "outputs" / "children_hosp_ml_optimized"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 REGIONS = [
@@ -644,7 +644,7 @@ class MLRegionTrainer:
             )
 
         ax_plot.set_title(
-            f"{self.region_name} | Adults 60+ Hospitalizations | Optimized ML Models | "
+            f"{self.region_name} | Children 5- Hospitalizations | Optimized ML Models | "
             f"1-Month Ahead Backtest + 1-Year Future Projection",
             fontsize=14,
             fontweight="bold"
@@ -707,7 +707,7 @@ class MLRegionTrainer:
             ax_table.text(
                 0.5,
                 1.02,
-                "Future predictions of hospitalizations in adults 60+ (per 100,000 inhabitants)",
+                "Future predictions of hospitalizations in children 5- (per 100,000 inhabitants)",
                 ha="center",
                 va="bottom",
                 fontsize=11,
@@ -961,7 +961,7 @@ class MLRegionTrainer:
         ax.set_title(
             f"{self.region_name} | "
             "Epidemiological Anomalies in Hospitalizations "
-            "of Adults 60+",
+            "of children 5-",
             fontsize=14,
             fontweight="bold"
         )
@@ -1084,17 +1084,17 @@ def main():
         )
 
         results_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_predictions.csv",
+            region_dir / f"{prefix}_children_hosp_ml_predictions.csv",
             index=False
         )
 
         metrics_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_metrics.csv",
+            region_dir / f"{prefix}_children_hosp_ml_metrics.csv",
             index=False
         )
 
         future_csv_df.to_csv(
-            region_dir / f"{prefix}_adults_hosp_ml_future_predictions.csv",
+            region_dir / f"{prefix}_children_hosp_ml_future_predictions.csv",
             index=False
         )
 
@@ -1105,29 +1105,29 @@ def main():
 
         trainer.plot_results(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_hosp_ml_plot.png"
+            output_png=region_dir / f"{prefix}_children_hosp_ml_plot.png"
         )
 
         trainer.plot_heatmap(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_hosp_heatmap.png"
+            output_png=region_dir / f"{prefix}_children_hosp_heatmap.png"
         )
 
         trainer.plot_anomalies(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_hosp_anomalies.png"
+            output_png=region_dir / f"{prefix}_children_hosp_anomalies.png"
         )
 
     pd.concat(all_results, ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_predictions.csv",
+        OUTPUT_DIR / "all_regions_children_hosp_ml_predictions.csv",
         index=False
     )
     pd.concat(all_metrics, ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_metrics.csv",
+        OUTPUT_DIR / "all_regions_children_hosp_ml_metrics.csv",
         index=False
     )
     pd.concat(all_future, ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_hosp_ml_future_predictions.csv",
+        OUTPUT_DIR / "all_regions_children_hosp_ml_future_predictions.csv",
         index=False
     )
     pd.concat(all_comparisons, ignore_index=True).to_csv(

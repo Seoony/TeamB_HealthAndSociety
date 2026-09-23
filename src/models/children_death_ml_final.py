@@ -21,7 +21,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 IRA_PATH = ROOT_DIR / "data" / "raw" / "iras_data_raw_temp.parquet"
 POP_PATH = ROOT_DIR / "data" / "raw" / "population_dept_long.parquet"
 
-OUTPUT_DIR = ROOT_DIR / "outputs" / "adults_death_ml_optimized"
+OUTPUT_DIR = ROOT_DIR / "outputs" / "children_death_ml_optimized"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 REGIONS = [
@@ -588,7 +588,7 @@ class MLRegionTrainer:
             )
 
         ax_plot.set_title(
-            f"{self.region_name} | Adults 60+ Deaths | Optimized ML Models | "
+            f"{self.region_name} | Children 5- Deaths | Optimized ML Models | "
             f"1-Month Ahead Backtest + 1-Year Future Projection",
             fontsize=14,
             fontweight="bold"
@@ -651,7 +651,7 @@ class MLRegionTrainer:
             ax_table.text(
                 0.5,
                 1.02,
-                "Future predictions of deaths in adults 60+ (per 100,000 inhabitants)",
+                "Future predictions of deaths in children 5- (per 100,000 inhabitants)",
                 ha="center",
                 va="bottom",
                 fontsize=11,
@@ -905,7 +905,7 @@ class MLRegionTrainer:
         ax.set_title(
             f"{self.region_name} | "
             "Epidemiological Anomalies in Deaths "
-            "of Adults 60+",
+            "of Children 5-",
             fontsize=14,
             fontweight="bold"
         )
@@ -1002,32 +1002,32 @@ def main():
         region_dir.mkdir(parents=True, exist_ok=True)
  
         results_df.to_csv(
-            region_dir / f"{prefix}_adults_death_ml_predictions.csv", index=False)
+            region_dir / f"{prefix}_children_death_ml_predictions.csv", index=False)
         metrics_df.to_csv(
-            region_dir / f"{prefix}_adults_death_ml_metrics.csv", index=False)
+            region_dir / f"{prefix}_children_death_ml_metrics.csv", index=False)
         future_df.to_csv(
-            region_dir / f"{prefix}_adults_death_ml_future_predictions.csv", index=False)
+            region_dir / f"{prefix}_children_death_ml_future_predictions.csv", index=False)
         comparison_df.to_csv(
             region_dir / f"{prefix}_comparison_predictions.csv", index=False)
         trainer.plot_results(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_death_ml_plot.png"
+            output_png=region_dir / f"{prefix}_children_death_ml_plot.png"
         )
         trainer.plot_heatmap(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_death_heatmap.png"
+            output_png=region_dir / f"{prefix}_children_death_heatmap.png"
         )
         trainer.plot_anomalies(
             future_df=future_df,
-            output_png=region_dir / f"{prefix}_adults_death_anomalies.png"
+            output_png=region_dir / f"{prefix}_children_death_anomalies.png"
         )
  
     pd.concat(all_results,     ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_death_ml_predictions.csv",        index=False)
+        OUTPUT_DIR / "all_regions_children_death_ml_predictions.csv",        index=False)
     pd.concat(all_metrics,     ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_death_ml_metrics.csv",            index=False)
+        OUTPUT_DIR / "all_regions_children_death_ml_metrics.csv",            index=False)
     pd.concat(all_future,      ignore_index=True).to_csv(
-        OUTPUT_DIR / "all_regions_adults_death_ml_future_predictions.csv", index=False)
+        OUTPUT_DIR / "all_regions_children_death_ml_future_predictions.csv", index=False)
     pd.concat(all_comparisons, ignore_index=True).to_csv(
         OUTPUT_DIR / "all_regions_comparison_death_predictions.csv",            index=False)
  
