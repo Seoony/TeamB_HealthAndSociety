@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+CUSCO,random_forest,0.1,0.136,0.661
+CUSCO,xgboost,0.098,0.134,0.672

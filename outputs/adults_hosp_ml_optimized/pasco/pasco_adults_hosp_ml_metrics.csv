@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+PASCO,random_forest,0.732,1.067,0.52
+PASCO,xgboost,0.696,1.016,0.564

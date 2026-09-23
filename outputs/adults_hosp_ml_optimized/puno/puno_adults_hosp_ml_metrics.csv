@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+PUNO,random_forest,0.254,0.327,0.623
+PUNO,xgboost,0.244,0.312,0.657

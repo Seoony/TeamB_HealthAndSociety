@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+ICA,random_forest,0.479,0.982,0.81
+ICA,xgboost,0.434,0.953,0.821

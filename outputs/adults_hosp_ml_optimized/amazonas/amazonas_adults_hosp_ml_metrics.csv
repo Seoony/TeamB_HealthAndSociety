@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+AMAZONAS,random_forest,0.524,0.72,0.623
+AMAZONAS,xgboost,0.507,0.708,0.635

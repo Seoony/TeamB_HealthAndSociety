@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+SAN MARTIN,random_forest,0.431,0.887,0.716
+SAN MARTIN,xgboost,0.405,0.864,0.731

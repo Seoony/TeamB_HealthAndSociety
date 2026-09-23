@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+AYACUCHO,random_forest,0.862,1.655,0.769
+AYACUCHO,xgboost,0.825,1.68,0.762

@@ -24,7 +24,33 @@ POP_PATH = ROOT_DIR / "data" / "raw" / "population_dept_long.parquet"
 OUTPUT_DIR = ROOT_DIR / "outputs" / "adults_death_ml_optimized"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-REGIONS = ["AREQUIPA", "TACNA", "MOQUEGUA", "TUMBES", "LIMA"]
+REGIONS = [
+    "AMAZONAS",
+    "ANCASH",
+    "APURIMAC",
+    "AREQUIPA",
+    "AYACUCHO",
+    "CAJAMARCA",
+    "CALLAO",
+    "CUSCO",
+    "HUANCAVELICA",
+    "HUANUCO",
+    "ICA",
+    "JUNIN",
+    "LA LIBERTAD",
+    "LAMBAYEQUE",
+    "LIMA",
+    "LORETO",
+    "MADRE DE DIOS",
+    "MOQUEGUA",
+    "PASCO",
+    "PIURA",
+    "PUNO",
+    "SAN MARTIN",
+    "TACNA",
+    "TUMBES",
+    "UCAYALI",
+]
 
 TARGET_COL = "defunciones_60mas"
 

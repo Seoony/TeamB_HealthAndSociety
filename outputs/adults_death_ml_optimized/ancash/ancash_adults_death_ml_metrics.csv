@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+ANCASH,random_forest,0.044,0.067,0.494
+ANCASH,xgboost,0.043,0.067,0.505

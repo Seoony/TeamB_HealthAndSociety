@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+PIURA,random_forest,0.256,0.781,0.774
+PIURA,xgboost,0.246,0.794,0.766

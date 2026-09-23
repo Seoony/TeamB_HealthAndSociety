@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+CALLAO,random_forest,0.176,0.322,0.733
+CALLAO,xgboost,0.168,0.319,0.738

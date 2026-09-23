@@ -1,11 +1,51 @@
 region,model,mae,rmse,r2
+AMAZONAS,random_forest,0.098,0.246,0.767
+AMAZONAS,xgboost,0.097,0.236,0.784
+ANCASH,random_forest,0.044,0.067,0.494
+ANCASH,xgboost,0.043,0.067,0.505
+APURIMAC,random_forest,0.104,0.16,0.478
+APURIMAC,xgboost,0.104,0.16,0.479
 AREQUIPA,random_forest,0.145,0.21,0.708
 AREQUIPA,xgboost,0.132,0.193,0.754
-TACNA,random_forest,0.139,0.247,0.574
-TACNA,xgboost,0.139,0.239,0.602
-MOQUEGUA,random_forest,0.41,0.703,0.551
-MOQUEGUA,xgboost,0.406,0.693,0.563
-TUMBES,random_forest,0.0,0.0,1.0
-TUMBES,xgboost,0.0,0.0,1.0
+AYACUCHO,random_forest,0.311,0.775,0.64
+AYACUCHO,xgboost,0.28,0.719,0.69
+CAJAMARCA,random_forest,0.027,0.043,0.38
+CAJAMARCA,xgboost,0.026,0.044,0.352
+CALLAO,random_forest,0.176,0.322,0.733
+CALLAO,xgboost,0.168,0.319,0.738
+CUSCO,random_forest,0.1,0.136,0.661
+CUSCO,xgboost,0.098,0.134,0.672
+HUANCAVELICA,random_forest,0.388,0.594,0.614
+HUANCAVELICA,xgboost,0.361,0.574,0.64
+HUANUCO,random_forest,0.091,0.133,0.513
+HUANUCO,xgboost,0.087,0.129,0.545
+ICA,random_forest,0.199,0.372,0.705
+ICA,xgboost,0.19,0.354,0.733
+JUNIN,random_forest,0.068,0.102,0.607
+JUNIN,xgboost,0.066,0.1,0.627
+LA LIBERTAD,random_forest,0.234,0.491,0.689
+LA LIBERTAD,xgboost,0.206,0.438,0.753
+LAMBAYEQUE,random_forest,0.012,0.026,0.42
+LAMBAYEQUE,xgboost,0.012,0.027,0.381
 LIMA,random_forest,0.071,0.132,0.794
 LIMA,xgboost,0.067,0.128,0.806
+LORETO,random_forest,0.068,0.113,0.575
+LORETO,xgboost,0.065,0.107,0.625
+MADRE DE DIOS,random_forest,0.094,0.216,0.503
+MADRE DE DIOS,xgboost,0.101,0.234,0.42
+MOQUEGUA,random_forest,0.41,0.703,0.551
+MOQUEGUA,xgboost,0.406,0.693,0.563
+PASCO,random_forest,0.121,0.246,0.375
+PASCO,xgboost,0.109,0.228,0.463
+PIURA,random_forest,0.256,0.781,0.774
+PIURA,xgboost,0.246,0.794,0.766
+PUNO,random_forest,0.095,0.123,0.448
+PUNO,xgboost,0.091,0.118,0.493
+SAN MARTIN,random_forest,0.102,0.292,0.634
+SAN MARTIN,xgboost,0.088,0.261,0.707
+TACNA,random_forest,0.139,0.247,0.574
+TACNA,xgboost,0.139,0.239,0.602
+TUMBES,random_forest,0.0,0.0,1.0
+TUMBES,xgboost,0.0,0.0,1.0
+UCAYALI,random_forest,0.043,0.087,0.405
+UCAYALI,xgboost,0.041,0.087,0.405

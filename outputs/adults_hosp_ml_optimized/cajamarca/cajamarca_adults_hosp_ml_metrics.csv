@@ -1,0 +1,3 @@
+region,model,mae,rmse,r2
+CAJAMARCA,random_forest,0.167,0.24,0.707
+CAJAMARCA,xgboost,0.161,0.232,0.725
