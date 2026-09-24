@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+AMAZONAS,naive,0.545,0.778,0.4
+AMAZONAS,seasonal_naive,0.863,1.17,-0.357
+AMAZONAS,holt_winters,0.57,0.802,0.363
+AMAZONAS,arima,0.518,0.752,0.439

@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+TACNA,naive,0.289,0.47,0.214
+TACNA,seasonal_naive,0.435,0.623,-0.384
+TACNA,holt_winters,0.319,0.488,0.151
+TACNA,arima,0.283,0.456,0.257

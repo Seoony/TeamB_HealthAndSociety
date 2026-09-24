@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+UCAYALI,naive,0.917,1.406,0.508
+UCAYALI,seasonal_naive,1.564,2.193,-0.196
+UCAYALI,holt_winters,0.995,1.495,0.444
+UCAYALI,arima,0.909,1.404,0.509

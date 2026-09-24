@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+AYACUCHO,naive,0.585,0.869,0.562
+AYACUCHO,seasonal_naive,1.114,1.547,-0.389
+AYACUCHO,holt_winters,0.633,0.897,0.533
+AYACUCHO,arima,0.576,0.831,0.6

@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+PIURA,naive,0.027,0.046,-0.431
+PIURA,seasonal_naive,0.037,0.057,-1.203
+PIURA,holt_winters,0.031,0.049,-0.634
+PIURA,arima,0.026,0.043,-0.256

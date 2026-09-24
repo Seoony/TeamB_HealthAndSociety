@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+HUANCAVELICA,naive,0.138,0.221,-0.111
+HUANCAVELICA,seasonal_naive,0.184,0.282,-0.812
+HUANCAVELICA,holt_winters,0.162,0.228,-0.189
+HUANCAVELICA,arima,0.14,0.207,0.021

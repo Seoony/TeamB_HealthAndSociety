@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+LIMA,naive,0.25,0.363,0.801
+LIMA,seasonal_naive,0.547,0.775,0.095
+LIMA,holt_winters,0.247,0.343,0.823
+LIMA,arima,0.227,0.338,0.827

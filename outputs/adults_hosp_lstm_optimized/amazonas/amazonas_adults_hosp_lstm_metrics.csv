@@ -1,0 +1,2 @@
+region,model,mae,rmse,r2
+AMAZONAS,lstm,0.83,1.21,0.1

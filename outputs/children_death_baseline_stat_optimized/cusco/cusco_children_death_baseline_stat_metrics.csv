@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+CUSCO,naive,0.088,0.131,-0.197
+CUSCO,seasonal_naive,0.116,0.164,-0.876
+CUSCO,holt_winters,0.097,0.135,-0.281
+CUSCO,arima,0.086,0.123,-0.055

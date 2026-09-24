@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+CAJAMARCA,naive,0.386,0.575,0.589
+CAJAMARCA,seasonal_naive,0.657,0.915,-0.039
+CAJAMARCA,holt_winters,0.383,0.554,0.619
+CAJAMARCA,arima,0.373,0.542,0.635

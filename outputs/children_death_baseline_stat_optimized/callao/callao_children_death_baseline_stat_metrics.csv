@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+CALLAO,naive,0.02,0.047,-0.348
+CALLAO,seasonal_naive,0.03,0.058,-1.048
+CALLAO,holt_winters,0.025,0.046,-0.255
+CALLAO,arima,0.021,0.042,-0.07

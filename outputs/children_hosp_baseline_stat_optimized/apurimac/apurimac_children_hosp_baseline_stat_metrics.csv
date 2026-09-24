@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+APURIMAC,naive,0.734,1.029,0.48
+APURIMAC,seasonal_naive,1.445,2.016,-0.995
+APURIMAC,holt_winters,0.742,1.073,0.435
+APURIMAC,arima,0.673,0.946,0.56

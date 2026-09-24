@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+TUMBES,naive,0.014,0.078,-0.29
+TUMBES,seasonal_naive,0.024,0.103,-1.259
+TUMBES,holt_winters,0.025,0.082,-0.411
+TUMBES,arima,0.014,0.07,-0.037

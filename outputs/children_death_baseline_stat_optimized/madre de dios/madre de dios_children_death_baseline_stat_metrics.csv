@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+MADRE DE DIOS,naive,0.056,0.188,-0.301
+MADRE DE DIOS,seasonal_naive,0.067,0.223,-0.828
+MADRE DE DIOS,holt_winters,0.072,0.19,-0.321
+MADRE DE DIOS,arima,0.057,0.167,-0.03

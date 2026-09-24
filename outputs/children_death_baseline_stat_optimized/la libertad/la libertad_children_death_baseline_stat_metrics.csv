@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+LA LIBERTAD,naive,0.034,0.055,-0.346
+LA LIBERTAD,seasonal_naive,0.049,0.074,-1.387
+LA LIBERTAD,holt_winters,0.039,0.056,-0.392
+LA LIBERTAD,arima,0.034,0.053,-0.216

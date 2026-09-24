@@ -1,0 +1,2 @@
+region,model,mae,rmse,r2
+ANCASH,lstm,0.06,0.15,-0.13

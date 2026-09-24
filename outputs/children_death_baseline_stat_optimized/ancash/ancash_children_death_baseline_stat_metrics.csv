@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+ANCASH,naive,0.023,0.047,-0.099
+ANCASH,seasonal_naive,0.043,0.072,-1.553
+ANCASH,holt_winters,0.031,0.053,-0.39
+ANCASH,arima,0.024,0.044,0.032
