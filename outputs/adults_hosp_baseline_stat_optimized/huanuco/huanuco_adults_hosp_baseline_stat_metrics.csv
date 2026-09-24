@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+HUANUCO,naive,0.545,0.765,0.375
+HUANUCO,seasonal_naive,0.863,1.236,-0.632
+HUANUCO,holt_winters,0.578,0.812,0.296
+HUANUCO,arima,0.548,0.781,0.348

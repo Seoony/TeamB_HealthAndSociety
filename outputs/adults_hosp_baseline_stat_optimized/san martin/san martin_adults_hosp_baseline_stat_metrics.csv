@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+SAN MARTIN,naive,0.448,0.782,0.762
+SAN MARTIN,seasonal_naive,0.955,1.838,-0.312
+SAN MARTIN,holt_winters,0.488,0.85,0.719
+SAN MARTIN,arima,0.447,0.799,0.752

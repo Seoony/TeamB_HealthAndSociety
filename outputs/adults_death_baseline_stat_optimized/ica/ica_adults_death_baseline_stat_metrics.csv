@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+ICA,naive,0.207,0.329,0.757
+ICA,seasonal_naive,0.442,0.824,-0.524
+ICA,holt_winters,0.238,0.398,0.645
+ICA,arima,0.219,0.38,0.676

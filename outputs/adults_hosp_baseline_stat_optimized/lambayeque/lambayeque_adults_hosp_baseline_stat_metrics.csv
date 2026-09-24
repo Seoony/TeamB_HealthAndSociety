@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+LAMBAYEQUE,naive,0.214,0.457,0.707
+LAMBAYEQUE,seasonal_naive,0.59,1.201,-1.025
+LAMBAYEQUE,holt_winters,0.229,0.475,0.683
+LAMBAYEQUE,arima,0.227,0.484,0.671

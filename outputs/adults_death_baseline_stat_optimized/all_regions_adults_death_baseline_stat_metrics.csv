@@ -1,0 +1,101 @@
+region,model,mae,rmse,r2
+AMAZONAS,naive,0.092,0.249,0.742
+AMAZONAS,seasonal_naive,0.289,0.687,-0.968
+AMAZONAS,holt_winters,0.109,0.252,0.735
+AMAZONAS,arima,0.104,0.24,0.76
+ANCASH,naive,0.049,0.083,0.198
+ANCASH,seasonal_naive,0.074,0.13,-0.978
+ANCASH,holt_winters,0.058,0.088,0.096
+ANCASH,arima,0.052,0.083,0.182
+APURIMAC,naive,0.133,0.225,-0.093
+APURIMAC,seasonal_naive,0.173,0.266,-0.519
+APURIMAC,holt_winters,0.143,0.222,-0.061
+APURIMAC,arima,0.126,0.2,0.139
+AREQUIPA,naive,0.18,0.25,0.563
+AREQUIPA,seasonal_naive,0.339,0.472,-0.553
+AREQUIPA,holt_winters,0.186,0.257,0.54
+AREQUIPA,arima,0.161,0.232,0.624
+AYACUCHO,naive,0.265,0.512,0.833
+AYACUCHO,seasonal_naive,0.715,1.612,-0.662
+AYACUCHO,holt_winters,0.319,0.699,0.688
+AYACUCHO,arima,0.282,0.663,0.719
+CAJAMARCA,naive,0.034,0.063,-0.403
+CAJAMARCA,seasonal_naive,0.044,0.075,-0.989
+CAJAMARCA,holt_winters,0.038,0.063,-0.39
+CAJAMARCA,arima,0.03,0.053,0.018
+CALLAO,naive,0.192,0.326,0.715
+CALLAO,seasonal_naive,0.379,0.704,-0.326
+CALLAO,holt_winters,0.195,0.333,0.702
+CALLAO,arima,0.182,0.317,0.731
+CUSCO,naive,0.12,0.168,0.462
+CUSCO,seasonal_naive,0.18,0.24,-0.096
+CUSCO,holt_winters,0.125,0.172,0.436
+CUSCO,arima,0.11,0.155,0.541
+HUANCAVELICA,naive,0.44,0.644,0.517
+HUANCAVELICA,seasonal_naive,0.827,1.359,-1.153
+HUANCAVELICA,holt_winters,0.481,0.732,0.376
+HUANCAVELICA,arima,0.427,0.638,0.525
+HUANUCO,naive,0.11,0.179,0.075
+HUANUCO,seasonal_naive,0.181,0.269,-1.091
+HUANUCO,holt_winters,0.122,0.177,0.094
+HUANUCO,arima,0.109,0.168,0.184
+ICA,naive,0.207,0.329,0.757
+ICA,seasonal_naive,0.442,0.824,-0.524
+ICA,holt_winters,0.238,0.398,0.645
+ICA,arima,0.219,0.38,0.676
+JUNIN,naive,0.076,0.128,0.349
+JUNIN,seasonal_naive,0.119,0.179,-0.274
+JUNIN,holt_winters,0.081,0.123,0.4
+JUNIN,arima,0.078,0.119,0.439
+LA LIBERTAD,naive,0.217,0.427,0.749
+LA LIBERTAD,seasonal_naive,0.69,1.202,-0.994
+LA LIBERTAD,holt_winters,0.256,0.496,0.66
+LA LIBERTAD,arima,0.218,0.436,0.738
+LAMBAYEQUE,naive,0.013,0.033,0.013
+LAMBAYEQUE,seasonal_naive,0.019,0.045,-0.837
+LAMBAYEQUE,holt_winters,0.014,0.032,0.06
+LAMBAYEQUE,arima,0.013,0.029,0.218
+LIMA,naive,0.068,0.125,0.808
+LIMA,seasonal_naive,0.2,0.373,-0.715
+LIMA,holt_winters,0.073,0.136,0.771
+LIMA,arima,0.069,0.131,0.787
+LORETO,naive,0.078,0.134,0.364
+LORETO,seasonal_naive,0.113,0.193,-0.306
+LORETO,holt_winters,0.089,0.14,0.307
+LORETO,arima,0.078,0.126,0.437
+MADRE DE DIOS,naive,0.13,0.312,-0.067
+MADRE DE DIOS,seasonal_naive,0.142,0.337,-0.242
+MADRE DE DIOS,holt_winters,0.138,0.297,0.037
+MADRE DE DIOS,arima,0.13,0.285,0.11
+MOQUEGUA,naive,0.468,0.829,0.338
+MOQUEGUA,seasonal_naive,0.708,1.218,-0.431
+MOQUEGUA,holt_winters,0.541,0.903,0.213
+MOQUEGUA,arima,0.486,0.815,0.359
+PASCO,naive,0.127,0.268,0.201
+PASCO,seasonal_naive,0.207,0.421,-0.963
+PASCO,holt_winters,0.147,0.267,0.209
+PASCO,arima,0.121,0.244,0.342
+PIURA,naive,0.188,0.626,0.843
+PIURA,seasonal_naive,0.731,2.065,-0.711
+PIURA,holt_winters,0.194,0.587,0.862
+PIURA,arima,0.194,0.624,0.844
+PUNO,naive,0.136,0.195,0.134
+PUNO,seasonal_naive,0.188,0.254,-0.465
+PUNO,holt_winters,0.149,0.202,0.072
+PUNO,arima,0.134,0.189,0.193
+SAN MARTIN,naive,0.095,0.242,0.73
+SAN MARTIN,seasonal_naive,0.196,0.51,-0.205
+SAN MARTIN,holt_winters,0.105,0.266,0.674
+SAN MARTIN,arima,0.097,0.267,0.671
+TACNA,naive,0.176,0.341,0.316
+TACNA,seasonal_naive,0.306,0.521,-0.593
+TACNA,holt_winters,0.209,0.357,0.252
+TACNA,arima,0.176,0.337,0.336
+TUMBES,naive,0.0,0.0,1.0
+TUMBES,seasonal_naive,0.0,0.0,1.0
+TUMBES,holt_winters,0.0,0.0,1.0
+TUMBES,arima,0.0,0.0,1.0
+UCAYALI,naive,0.049,0.118,-0.156
+UCAYALI,seasonal_naive,0.069,0.145,-0.758
+UCAYALI,holt_winters,0.053,0.111,-0.031
+UCAYALI,arima,0.05,0.108,0.019

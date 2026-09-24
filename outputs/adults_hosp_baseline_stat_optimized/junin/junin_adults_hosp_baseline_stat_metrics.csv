@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+JUNIN,naive,0.418,0.588,0.353
+JUNIN,seasonal_naive,0.687,0.984,-0.81
+JUNIN,holt_winters,0.456,0.623,0.275
+JUNIN,arima,0.393,0.555,0.425

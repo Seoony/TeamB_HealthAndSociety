@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+PASCO,naive,0.909,1.25,0.33
+PASCO,seasonal_naive,1.633,2.262,-1.194
+PASCO,holt_winters,0.991,1.309,0.265
+PASCO,arima,0.826,1.135,0.447

@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+MOQUEGUA,naive,0.468,0.829,0.338
+MOQUEGUA,seasonal_naive,0.708,1.218,-0.431
+MOQUEGUA,holt_winters,0.541,0.903,0.213
+MOQUEGUA,arima,0.486,0.815,0.359

@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+LORETO,naive,0.381,0.509,0.296
+LORETO,seasonal_naive,0.628,0.816,-0.81
+LORETO,holt_winters,0.404,0.534,0.225
+LORETO,arima,0.351,0.486,0.358

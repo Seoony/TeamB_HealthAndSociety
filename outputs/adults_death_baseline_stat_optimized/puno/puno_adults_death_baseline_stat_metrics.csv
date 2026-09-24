@@ -1,0 +1,5 @@
+region,model,mae,rmse,r2
+PUNO,naive,0.136,0.195,0.134
+PUNO,seasonal_naive,0.188,0.254,-0.465
+PUNO,holt_winters,0.149,0.202,0.072
+PUNO,arima,0.134,0.189,0.193
